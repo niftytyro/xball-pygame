@@ -13,6 +13,7 @@ screen = display.set_mode((screen_w, screen_h), pygame.RESIZABLE)
 running = True
 
 ball = Ball(screen)
+bar = Bar(screen)
 
 while running:
 
@@ -23,7 +24,10 @@ while running:
     screen.fill((100, 0, 0))
     ball.draw()
     ball.updatePosition()
-    running = ball.updateVelocity()
+    running = ball.updateVelocity((bar.x, bar.x + bar.width), bar.y)
+
+    bar.draw()
+    bar.updatePosition()
 
     pygame.display.flip()
 
