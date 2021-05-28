@@ -33,7 +33,11 @@ while running:
     screen.fill((100, 0, 0))
     ball.draw()
     ball.updatePosition()
-    running = ball.updateVelocity((bar.x, bar.x + bar.width), bar.y)
+    brickIdx = ball.checkBrickHit(bricks)
+    if brickIdx < 0:
+        running = ball.updateVelocity((bar.x, bar.x + bar.width), bar.y)
+    else:
+        bricks.pop(brickIdx)
 
     bar.draw()
     bar.updatePosition()
@@ -42,5 +46,8 @@ while running:
         brick.draw()
 
     pygame.display.flip()
+
+    if len(bricks) == 0:
+        running = False
 
 pygame.quit()
