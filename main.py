@@ -17,14 +17,11 @@ ball = Ball(screen)
 bar = Bar(screen)
 bricks = [
     Brick(
-        (
-            col * (screen_w - 13) / 12 + ((col + 1)),
-            row * ((screen_h / 2.5) - 13) / 12 + ((row + 1)),
-        ),
+        (col, row),
         screen,
     )
-    for row in range(10)
-    for col in range(12)
+    for row in range(Brick.number_of_rows)
+    for col in range(Brick.number_of_cols)
 ]
 
 while running:
