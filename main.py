@@ -1,3 +1,4 @@
+from brick import Brick
 import pygame
 import pygame.display as display
 from ball import Ball
@@ -14,6 +15,17 @@ running = True
 
 ball = Ball(screen)
 bar = Bar(screen)
+bricks = [
+    Brick(
+        (
+            col * (screen_w - 13) / 12 + ((col + 1)),
+            row * ((screen_h / 2.5) - 13) / 12 + ((row + 1)),
+        ),
+        screen,
+    )
+    for row in range(10)
+    for col in range(12)
+]
 
 while running:
 
@@ -28,6 +40,9 @@ while running:
 
     bar.draw()
     bar.updatePosition()
+
+    for brick in bricks:
+        brick.draw()
 
     pygame.display.flip()
 

@@ -2,7 +2,7 @@ import pygame.draw as draw
 
 
 class Ball:
-    radius = 40
+    radius = 10
     color = (255, 255, 255)
     x = radius - 5
     y = radius - 5
